@@ -1,6 +1,6 @@
 # Mobile Detailing Business System (GitHub-Ready)
 
-A deploy-ready static website for a mobile detailing business.
+A deploy-ready static website for a mobile detailing business with a black-and-gold executive visual theme.
 
 ## What this includes
 
