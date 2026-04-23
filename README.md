@@ -42,6 +42,20 @@ A deploy-ready static website for a mobile detailing business.
    - Open booking link
    - Verify contact links
 
+## Address autocomplete (Google Places)
+
+The quote form includes a **Service Address** field with Google Places autocomplete.
+
+- Script used in `index.html`:
+  `https://maps.googleapis.com/maps/api/js?key=AIzaSyARZAA619g3JlruK77Lfm8vlopcR76vRGg&libraries=places&callback=initGooglePlaces`
+- Captured fields sent with form:
+  - `service_address`
+  - `address_place_id`
+  - `address_lat`
+  - `address_lng`
+
+> Important: Restrict the Google Maps API key by HTTP referrer and enable only required APIs in Google Cloud.
+
 ## Tool choices supported
 
 - Hosting: **GitHub Pages** (free)

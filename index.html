@@ -120,10 +120,27 @@
               </select>
             </label>
             <label>
+              Service Address
+              <input
+                id="serviceAddress"
+                type="text"
+                name="service_address"
+                placeholder="Start typing your address"
+                autocomplete="street-address"
+                required
+              />
+            </label>
+            <input id="addressPlaceId" type="hidden" name="address_place_id" />
+            <input id="addressLat" type="hidden" name="address_lat" />
+            <input id="addressLng" type="hidden" name="address_lng" />
+            <label>
               Service Needed
               <textarea name="request" rows="4" required></textarea>
             </label>
             <button class="btn btn-primary" type="submit">Submit Quote Request</button>
+            <p id="addressHint" class="hint">
+              Address autocomplete loads from Google Places API to improve accuracy.
+            </p>
             <p id="formMessage" class="hint" role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -197,6 +214,11 @@
       </div>
     </footer>
 
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARZAA619g3JlruK77Lfm8vlopcR76vRGg&libraries=places&callback=initGooglePlaces"
+      async
+      defer
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
