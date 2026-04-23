@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShineFlow Mobile Detailing | Book, Capture Leads, Track Customers</title>
+    <meta
+      name="description"
+      content="GitHub-ready mobile detailing business system: GitHub Pages website, Formspree lead form, Calendly booking, and HubSpot/Google Sheets CRM workflow."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home">ShineFlow Detail Co.</a>
+        <nav aria-label="Primary">
+          <ul class="nav">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#quote">Quote</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#crm">CRM</a></li>
+            <li><a href="#launch">Launch</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div>
+            <p class="pill">GitHub-ready starter code</p>
+            <h1>Run your mobile detailing business from one lightweight system.</h1>
+            <p class="lead">
+              Launch quickly with GitHub Pages + Formspree + Calendly + HubSpot
+              (or Google Sheets). Everything below is editable and deployment-ready.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#quote">Request Quote</a>
+              <a class="btn btn-secondary" href="#booking">Book Appointment</a>
+            </div>
+            <div class="quick-contact">
+              <a id="phoneLink" href="tel:+15555555555">Call (555) 555-5555</a>
+              <a id="emailLink" href="mailto:hello@example.com">hello@example.com</a>
+            </div>
+          </div>
+          <aside class="card">
+            <h2>System Stack</h2>
+            <ul>
+              <li><strong>Hosting:</strong> GitHub Pages (free)</li>
+              <li><strong>Frontend:</strong> HTML/CSS/JS</li>
+              <li><strong>Lead form:</strong> Formspree / Google Forms</li>
+              <li><strong>Booking:</strong> Calendly / Square</li>
+              <li><strong>CRM:</strong> HubSpot / Google Sheets</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="services" class="section section-alt">
+        <div class="container">
+          <h2>Packages</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Express Exterior</h3>
+              <p>Foam wash, wheels, tire shine, window clean.</p>
+              <p class="price">$89+</p>
+            </article>
+            <article class="card">
+              <h3>Interior Reset</h3>
+              <p>Vacuum, plastics, vents, fabric spot treatment.</p>
+              <p class="price">$139+</p>
+            </article>
+            <article class="card">
+              <h3>Complete Detail</h3>
+              <p>Interior + exterior + paint protection sealant.</p>
+              <p class="price">$249+</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="quote" class="section">
+        <div class="container two-col">
+          <div>
+            <h2>Lead Capture Form</h2>
+            <p>
+              This form is set up for Formspree. You can also replace it with a
+              Google Form embed if you want a no-code intake option.
+            </p>
+            <ol>
+              <li>Create a free Formspree form</li>
+              <li>Paste endpoint in <code>script.js</code></li>
+              <li>Test by submitting a sample request</li>
+            </ol>
+          </div>
+
+          <form id="quoteForm" class="form" method="POST" novalidate>
+            <label>
+              Full Name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Phone Number
+              <input type="tel" name="phone" autocomplete="tel" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Vehicle
+              <select name="vehicle_type" required>
+                <option value="">Choose vehicle type</option>
+                <option>Sedan</option>
+                <option>SUV</option>
+                <option>Truck</option>
+                <option>Van</option>
+              </select>
+            </label>
+            <label>
+              Service Needed
+              <textarea name="request" rows="4" required></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Submit Quote Request</button>
+            <p id="formMessage" class="hint" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="booking" class="section section-alt">
+        <div class="container two-col">
+          <div>
+            <h2>Booking System (Important)</h2>
+            <p>
+              Use Calendly for simple scheduling, or switch to Square if you need
+              appointment payments.
+            </p>
+            <a id="bookingLink" class="btn btn-primary" href="#" target="_blank" rel="noreferrer">Open Booking Calendar</a>
+            <p class="hint">Tip: Set travel buffers so appointments don't overlap by location.</p>
+          </div>
+          <div class="card">
+            <h3>Booking automation ideas</h3>
+            <ul>
+              <li>Instant confirmation email + SMS reminder</li>
+              <li>Collect vehicle size before appointment</li>
+              <li>Add no-show policy in booking description</li>
+              <li>Auto-create follow-up task in HubSpot</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="crm" class="section">
+        <div class="container two-col">
+          <div>
+            <h2>CRM Tracking</h2>
+            <p>Track each customer through this pipeline:</p>
+            <div class="pipeline">
+              <span>New Lead</span>
+              <span>Quoted</span>
+              <span>Booked</span>
+              <span>Completed</span>
+              <span>Review/Upsell</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Starter workflow</h3>
+            <p>
+              Form submission arrives by email, then add/update contact in HubSpot
+              (or Google Sheets). Send booking link, complete job, and schedule a
+              30-day follow-up for repeat service.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="launch" class="section section-alt">
+        <div class="container">
+          <h2>GitHub Launch Checklist</h2>
+          <ul class="launch-list">
+            <li>Update settings in <code>script.js</code></li>
+            <li>Commit + push to GitHub repository</li>
+            <li>Enable GitHub Pages in repository settings</li>
+            <li>Confirm form and booking links work on live site</li>
+            <li>Connect custom domain (optional)</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> ShineFlow Detail Co.</p>
+        <p>Optional upgrade later: Netlify for simpler forms and automation.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
