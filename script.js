@@ -79,23 +79,53 @@ window.initGooglePlaces = function initGooglePlaces() {
 };
 
 if (quoteForm) {
-  quoteForm.addEventListener("submit", (event) => {
+  quoteForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
     if (!quoteForm.checkValidity()) {
-      event.preventDefault();
       quoteForm.reportValidity();
       return;
     }
 
-    if (settings.formspreeEndpoint.includes("your-form-id")) {
-      event.preventDefault();
+    if (!settings.formspreeEndpoint || settings.formspreeEndpoint.includes("your-form-id")) {
       if (formMessage) {
         formMessage.textContent = "Setup required: add your real Formspree endpoint in script.js.";
       }
       return;
     }
 
+    const submitButton = quoteForm.querySelector('button[type="submit"]');
+    if (submitButton) submitButton.disabled = true;
+
     if (formMessage) {
-      formMessage.textContent = "Submitting your details, then redirecting you to booking...";
+      formMessage.textContent = "Submitting your details... Redirecting to booking in a moment.";
+    }
+
+    const formData = new FormData(quoteForm);
+    formData.set("_next", settings.calendlyUrl);
+    formData.set("_redirect", settings.calendlyUrl);
+
+    try {
+      const response = await fetch(settings.formspreeEndpoint, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      window.location.assign(settings.calendlyUrl);
+    } catch (error) {
+      if (formMessage) {
+        formMessage.textContent =
+          "We could not submit the form right now. Please try again, then use the booking button below.";
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
     }
   });
 }
