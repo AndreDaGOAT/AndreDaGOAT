@@ -1,10 +1,10 @@
 const settings = {
-  businessName: "ShineFlow Detail Co.",
-  phone: "+15555555555",
-  displayPhone: "(555) 555-5555",
-  email: "hello@example.com",
-  calendlyUrl: "https://calendly.com/your-calendly-link",
-  formspreeEndpoint: "https://formspree.io/f/your-form-id",
+  businessName: "Jubilee-Luxury-Mobile-Detailing Co.",
+  phone: "+6153487683",
+  displayPhone: "(615) 348-7683",
+  email: "Contact@jubileeexecutivecarservice.com",
+  calendlyUrl: "https://calendly.com/aarmstrong1234",
+  formspreeEndpoint: "https://formspree.io/f/xqewgnbb",
 };
 
 const bookingLink = document.getElementById("bookingLink");
@@ -13,6 +13,7 @@ const formMessage = document.getElementById("formMessage");
 const phoneLink = document.getElementById("phoneLink");
 const emailLink = document.getElementById("emailLink");
 const yearLabel = document.getElementById("year");
+const businessNameLabel = document.getElementById("businessName");
 const serviceAddressInput = document.getElementById("serviceAddress");
 const addressPlaceIdInput = document.getElementById("addressPlaceId");
 const addressLatInput = document.getElementById("addressLat");
@@ -30,6 +31,7 @@ if (emailLink) {
   emailLink.textContent = settings.email;
 }
 if (yearLabel) yearLabel.textContent = String(new Date().getFullYear());
+if (businessNameLabel) businessNameLabel.textContent = settings.businessName;
 
 if (formMessage && settings.formspreeEndpoint.includes("your-form-id")) {
   formMessage.textContent = "Setup required: update formspreeEndpoint in script.js.";

@@ -19,6 +19,8 @@ A deploy-ready static website for a mobile detailing business with a black-and-g
 
 ## 5-minute setup
 
+Default repository values are pre-filled for Jubilee Luxury Mobile Detailing.
+
 1. **Edit `script.js`**
    - `phone`
    - `displayPhone`
