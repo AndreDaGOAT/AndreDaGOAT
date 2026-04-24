@@ -14,6 +14,8 @@ const phoneLink = document.getElementById("phoneLink");
 const emailLink = document.getElementById("emailLink");
 const yearLabel = document.getElementById("year");
 const businessNameLabel = document.getElementById("businessName");
+const nextRedirectInput = document.getElementById("nextRedirect");
+
 const serviceAddressInput = document.getElementById("serviceAddress");
 const addressPlaceIdInput = document.getElementById("addressPlaceId");
 const addressLatInput = document.getElementById("addressLat");
@@ -22,20 +24,20 @@ const addressHint = document.getElementById("addressHint");
 
 if (bookingLink) bookingLink.href = settings.calendlyUrl;
 if (quoteForm) quoteForm.action = settings.formspreeEndpoint;
+if (nextRedirectInput) nextRedirectInput.value = settings.calendlyUrl;
+
 if (phoneLink) {
   phoneLink.href = `tel:${settings.phone}`;
   phoneLink.textContent = `Call ${settings.displayPhone}`;
 }
+
 if (emailLink) {
   emailLink.href = `mailto:${settings.email}`;
   emailLink.textContent = settings.email;
 }
+
 if (yearLabel) yearLabel.textContent = String(new Date().getFullYear());
 if (businessNameLabel) businessNameLabel.textContent = settings.businessName;
-
-if (formMessage && settings.formspreeEndpoint.includes("your-form-id")) {
-  formMessage.textContent = "Setup required: update formspreeEndpoint in script.js.";
-}
 
 function clearAddressMetadata() {
   if (addressPlaceIdInput) addressPlaceIdInput.value = "";
@@ -64,16 +66,11 @@ window.initGooglePlaces = function initGooglePlaces() {
   autocomplete.addListener("place_changed", () => {
     const place = autocomplete.getPlace();
 
-    if (!place?.formatted_address) {
-      return;
-    }
+    if (!place?.formatted_address) return;
 
     serviceAddressInput.value = place.formatted_address;
 
-    if (addressPlaceIdInput) {
-      addressPlaceIdInput.value = place.place_id || "";
-    }
-
+    if (addressPlaceIdInput) addressPlaceIdInput.value = place.place_id || "";
     if (place.geometry?.location) {
       if (addressLatInput) addressLatInput.value = String(place.geometry.location.lat());
       if (addressLngInput) addressLngInput.value = String(place.geometry.location.lng());
@@ -82,39 +79,23 @@ window.initGooglePlaces = function initGooglePlaces() {
 };
 
 if (quoteForm) {
-  quoteForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
+  quoteForm.addEventListener("submit", (event) => {
     if (!quoteForm.checkValidity()) {
+      event.preventDefault();
       quoteForm.reportValidity();
       return;
     }
 
     if (settings.formspreeEndpoint.includes("your-form-id")) {
-      formMessage.textContent = "Cannot submit yet: add your real Formspree endpoint.";
+      event.preventDefault();
+      if (formMessage) {
+        formMessage.textContent = "Setup required: add your real Formspree endpoint in script.js.";
+      }
       return;
     }
 
-    const formData = new FormData(quoteForm);
-
-    try {
-      const response = await fetch(settings.formspreeEndpoint, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Form request failed.");
-      }
-
-      quoteForm.reset();
-      clearAddressMetadata();
-      formMessage.textContent = "Success! Your quote request was sent.";
-    } catch (error) {
-      formMessage.textContent = "Submit failed. Try again or contact us by phone.";
+    if (formMessage) {
+      formMessage.textContent = "Submitting your details, then redirecting you to booking...";
     }
   });
 }
