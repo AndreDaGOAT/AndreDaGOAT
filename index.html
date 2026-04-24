@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jubilee Luxury Mobile Detailing | Book, Capture Leads, Track Customers</title>
+    <meta
+      name="description"
+      content="GitHub-ready mobile detailing business system: GitHub Pages website, Formspree lead form, Calendly booking, and HubSpot/Google Sheets CRM workflow."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home">Jubilee Luxury Mobile Detailing Co.</a>
+        <nav aria-label="Primary">
+          <ul class="nav">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#quote">Quote</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#crm">CRM</a></li>
+            <li><a href="#launch">Launch</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div>
+            <p class="pill">Pristine Premier Mobile Detailing</p>
+            <h1>Where elite automotive care meets modern, intuitive convenience.</h1>
+            <p class="lead">
+              White-glove service starts here. We utilize a sophisticated,
+              integrated suite to ensure your experience is as polished as your vehicle.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#quote">Request Quote</a>
+              <a class="btn btn-secondary" href="#booking">Book Appointment</a>
+            </div>
+            <div class="quick-contact">
+              <a id="phoneLink" href="tel:+6153487683">Call (615) 348-7683</a>
+              <a id="emailLink" href="mailto:Contact@jubileeexecutivecarservice.com"
+                >Contact@jubileeexecutivecarservice.com</a
+              >
+            </div>
+          </div>
+          <aside class="card">
+            <h2>The Client Experience</h2>
+            <ul>
+              <li><strong>Reliability:</strong> Secured by world-class cloud infrastructure</li>
+              <li><strong>Design:</strong> Bespoke, responsive interface for all devices</li>
+              <li><strong>Inquiries:</strong> Instant, encrypted communication channels</li>
+              <li><strong>Scheduling:</strong> Effortless, real-time booking management</li>
+              <li><strong>Personalization:</strong> Dedicated client profiles for tailored care</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="services" class="section section-alt">
+        <div class="container">
+          <h2>Packages</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Express Exterior</h3>
+              <p>Foam wash, wheels, tire shine, window clean.</p>
+              <p class="price">$89+</p>
+            </article>
+            <article class="card">
+              <h3>Interior Reset</h3>
+              <p>Vacuum, plastics, vents, fabric spot treatment.</p>
+              <p class="price">$139+</p>
+            </article>
+            <article class="card">
+              <h3>Complete Detail</h3>
+              <p>Interior + exterior + paint protection sealant.</p>
+              <p class="price">$249+</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="quote" class="section">
+        <div class="container two-col">
+          <div>
+            <h2>Tell Us About Your Vehicle</h2>
+            <p>
+              Please complete this quick form so we can build your quote accurately.
+              Once you submit, you will be redirected immediately to our private booking calendar to reserve your appointment.
+            </p>
+            <ol>
+              <li>Enter your contact details and service address</li>
+              <li>Describe your vehicle and detailing goals</li>
+              <li>Submit and continue straight to booking</li>
+            </ol>
+          </div>
+
+          <form
+            id="quoteForm"
+            class="form"
+            action="https://formspree.io/f/xqewgnbb"
+            method="POST"
+            novalidate
+          >
+            <label>
+              Full Name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Phone Number
+              <input type="tel" name="phone" autocomplete="tel" required />
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Vehicle
+              <select name="vehicle_type" required>
+                <option value="">Choose vehicle type</option>
+                <option>Sedan</option>
+                <option>SUV</option>
+                <option>Truck</option>
+                <option>Van</option>
+              </select>
+            </label>
+            <label>
+              Service Address
+              <input
+                id="serviceAddress"
+                type="text"
+                name="service_address"
+                placeholder="Start typing your address"
+                autocomplete="street-address"
+                required
+              />
+            </label>
+            <input id="addressPlaceId" type="hidden" name="address_place_id" />
+            <input id="addressLat" type="hidden" name="address_lat" />
+            <input id="addressLng" type="hidden" name="address_lng" />
+            <label>
+              Service Needed
+              <textarea name="request" rows="4" required></textarea>
+            </label>
+            <input id="nextRedirect" type="hidden" name="_next" value="https://calendly.com/aarmstrong1234" />
+            <button class="btn btn-primary" type="submit">Get My Quote &amp; Book</button>
+            <p id="addressHint" class="hint">Start typing your address and select a suggestion for faster, accurate service routing.</p>
+            <p id="formMessage" class="hint" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="booking" class="section section-alt">
+        <div class="container two-col">
+          <div>
+            <h2>Reserve Your Appointment</h2>
+            <p>
+              After form submission, you will land here to choose your preferred appointment time.
+              Select the slot that works best and we will confirm everything by email and phone.
+            </p>
+            <a id="bookingLink" class="btn btn-primary" href="#" target="_blank" rel="noreferrer"
+              >Open Booking Calendar</a
+            >
+            <p class="hint">
+              Our mobile studio meticulously plans travel routes to ensure punctual,
+              white-glove service at your doorstep.
+            </p>
+          </div>
+          <div class="card">
+            <h3>The Gold Standard of Convenience</h3>
+            <ul>
+              <li>
+                <strong>Instant Confirmation:</strong> Real-time alerts and concierge reminders sent
+                directly to your device.
+              </li>
+              <li>
+                <strong>Tailored Intake:</strong> We gather your vehicle specifications in advance for a
+                customized treatment plan.
+              </li>
+              <li>
+                <strong>Service Guarantee:</strong> Transparent policies designed to respect and protect
+                your valuable time.
+              </li>
+              <li>
+                <strong>Client Continuity:</strong> We maintain a meticulous history of your vehicle’s
+                care to ensure long-term preservation.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="crm" class="section">
+        <div class="container two-col">
+          <div>
+            <h2>The Client Journey</h2>
+            <p>
+              We meticulously monitor every stage of your experience to ensure our gold standard
+              of service is never compromised.
+            </p>
+            <div class="pipeline">
+              <span>Initial Inquiry</span>
+              <span>Bespoke Proposal</span>
+              <span>Confirmed Reservation</span>
+              <span>The Transformation</span>
+              <span>Post-Care &amp; Curation</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Our Commitment to Continuity</h3>
+            <p>
+              From the moment your request is received, our integrated management suite establishes
+              a dedicated profile for your vehicle. This allows us to provide a seamless transition
+              from scheduling to execution, followed by a personalized 30-day review to ensure your
+              vehicle maintains its showroom-quality finish.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="launch" class="section section-alt">
+        <div class="container">
+          <h2>GitHub Launch Checklist</h2>
+          <ul class="launch-list">
+            <li>Update settings in <code>script.js</code></li>
+            <li>Commit + push to GitHub repository</li>
+            <li>Enable GitHub Pages in repository settings</li>
+            <li>Confirm form and booking links work on live site</li>
+            <li>Connect custom domain (optional)</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> <span id="businessName">Jubilee-Luxury-Mobile-Detailing Co.</span></p>
+        <p>Optional upgrade later: Netlify for simpler forms and automation.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARZAA619g3JlruK77Lfm8vlopcR76vRGg&libraries=places&callback=initGooglePlaces"
+      async
+      defer
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
