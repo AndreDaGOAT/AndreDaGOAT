@@ -104,7 +104,13 @@
             </ol>
           </div>
 
-          <form id="quoteForm" class="form" method="POST" novalidate>
+          <form
+            id="quoteForm"
+            class="form"
+            action="https://formspree.io/f/xqewgnbb"
+            method="POST"
+            novalidate
+          >
             <label>
               Full Name
               <input type="text" name="name" autocomplete="name" required />
@@ -146,7 +152,7 @@
               <textarea name="request" rows="4" required></textarea>
             </label>
             <input id="nextRedirect" type="hidden" name="_next" value="https://calendly.com/aarmstrong1234" />
-            <button class="btn btn-primary" type="submit">Submit Details &amp; Continue to Booking</button>
+            <button class="btn btn-primary" type="submit">Get My Quote &amp; Book</button>
             <p id="addressHint" class="hint">Start typing your address and select a suggestion for faster, accurate service routing.</p>
             <p id="formMessage" class="hint" role="status" aria-live="polite"></p>
           </form>
