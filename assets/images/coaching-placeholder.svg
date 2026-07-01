@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 640 520" role="img" aria-labelledby="title desc">
+  <title id="title">Teacher coaching illustration</title>
+  <desc id="desc">An abstract illustration of educators reviewing literacy plans together.</desc>
+  <rect width="640" height="520" rx="36" fill="#eaf5fb"/>
+  <circle cx="510" cy="90" r="58" fill="#fff4d8"/>
+  <rect x="90" y="92" width="360" height="245" rx="24" fill="#ffffff" stroke="#12324a" stroke-opacity=".12" stroke-width="4"/>
+  <rect x="125" y="130" width="190" height="18" rx="9" fill="#1f5d86" opacity=".9"/>
+  <rect x="125" y="174" width="260" height="14" rx="7" fill="#d7a94b" opacity=".75"/>
+  <rect x="125" y="209" width="230" height="14" rx="7" fill="#9ccde5"/>
+  <rect x="125" y="244" width="285" height="14" rx="7" fill="#9ccde5"/>
+  <rect x="125" y="279" width="205" height="14" rx="7" fill="#9ccde5"/>
+  <circle cx="210" cy="390" r="48" fill="#12324a"/>
+  <circle cx="342" cy="390" r="48" fill="#1f5d86"/>
+  <circle cx="474" cy="390" r="48" fill="#d7a94b"/>
+  <path d="M164 470c12-35 80-35 92 0" fill="none" stroke="#12324a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M296 470c12-35 80-35 92 0" fill="none" stroke="#1f5d86" stroke-width="18" stroke-linecap="round"/>
+  <path d="M428 470c12-35 80-35 92 0" fill="none" stroke="#d7a94b" stroke-width="18" stroke-linecap="round"/>
+</svg>
